@@ -1,0 +1,16 @@
+[
+  {
+    "question": "What does the document say about retrieval evaluation?",
+    "expected_sources": [
+      "sample_course_notes.pdf"
+    ],
+    "notes": "Replace this sample with questions that match your own uploaded documents."
+  },
+  {
+    "question": "Which vector database or index is used in the project?",
+    "expected_sources": [
+      "sample_project_report.docx"
+    ],
+    "notes": "Keep expected_sources aligned with the filenames in rag_chatbot/data/raw/."
+  }
+]

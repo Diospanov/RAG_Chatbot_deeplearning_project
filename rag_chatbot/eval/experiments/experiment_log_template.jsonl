@@ -1,0 +1,1 @@
+{"timestamp_utc":"2026-04-16T00:00:00+00:00","dataset_path":"rag_chatbot/eval/dataset_sample.json","strategy":"sentence","top_k":5,"num_examples":2,"average_precision_at_5":0.4,"records":[]}
