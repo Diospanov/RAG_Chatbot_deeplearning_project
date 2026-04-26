@@ -38,3 +38,5 @@ build/
 # Eval outputs (optional — remove if you want to track these)
 eval/results.json
 eval/chunking_comparison.json
+
+rag_chatbot.zip
