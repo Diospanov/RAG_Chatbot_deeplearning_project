@@ -1,0 +1,188 @@
+[
+  {
+    "question": "What is Retrieval-Augmented Generation (RAG)?",
+    "ground_truth_answer": "RAG is an architecture that retrieves relevant document passages at query time and injects them into the LLM context as grounding evidence, solving the problem of LLMs being static snapshots without access to private or recent information.",
+    "ground_truth_passages": [
+      "Retrieval-Augmented Generation (RAG) is the dominant architecture for production LLM applications. It solves the fundamental problem of LLMs: they are static snapshots of training data and have no access to private, recent, or domain-specific information."
+    ]
+  },
+  {
+    "question": "Why is BERT used for retrieval but not generation?",
+    "ground_truth_answer": "BERT uses bidirectional self-attention which produces rich contextual embeddings, making it excellent for understanding and retrieval. However, because it sees the full sequence simultaneously, it cannot generate text autoregressively.",
+    "ground_truth_passages": [
+      "BERT architecture uses bidirectional self-attention. Strengths: produces rich contextual embeddings. Key insight: bidirectionality makes BERT excellent for understanding and retrieval, but it cannot generate fluently."
+    ]
+  },
+  {
+    "question": "What is the pre-training task of GPT-2?",
+    "ground_truth_answer": "GPT-2 is pre-trained on autoregressive language modeling — predicting the next token given all previous tokens.",
+    "ground_truth_passages": [
+      "Pre-training task: autoregressive language modeling — predict the next token."
+    ]
+  },
+  {
+    "question": "What chunking strategies does the project require?",
+    "ground_truth_answer": "The project requires at least two distinct strategies: fixed-size chunks with overlap, and sentence-aware or recursive splitting.",
+    "ground_truth_passages": [
+      "Implement at least two distinct chunking strategies, for example: (a) fixed-size chunks with overlap, and (b) sentence-aware or recursive splitting."
+    ]
+  },
+  {
+    "question": "What is the minimum chunk size in tokens?",
+    "ground_truth_answer": "100 tokens.",
+    "ground_truth_passages": ["Minimum chunk size: 100 tokens"]
+  },
+  {
+    "question": "What is the maximum chunk size in tokens?",
+    "ground_truth_answer": "512 tokens.",
+    "ground_truth_passages": ["Maximum chunk size: 512 tokens"]
+  },
+  {
+    "question": "What vector databases are acceptable for this project?",
+    "ground_truth_answer": "FAISS, ChromaDB, Qdrant, or Pinecone are all acceptable choices.",
+    "ground_truth_passages": [
+      "Index all vectors in a vector database — FAISS, ChromaDB, Qdrant, or Pinecone are all acceptable choices."
+    ]
+  },
+  {
+    "question": "What embedding models are acceptable?",
+    "ground_truth_answer": "Acceptable models include sentence-transformers (all-MiniLM-L6-v2 or similar), OpenAI text-embedding-3-small, or a BGE model.",
+    "ground_truth_passages": [
+      "Acceptable models include sentence-transformers (all-MiniLM-L6-v2 or similar), OpenAI text-embedding-3-small, or a BGE model."
+    ]
+  },
+  {
+    "question": "How many top chunks must be retrieved per query?",
+    "ground_truth_answer": "At minimum, the top-5 most similar chunks must be retrieved.",
+    "ground_truth_passages": [
+      "At minimum, retrieve the top-5 most similar chunks to each user query using cosine or ANN similarity."
+    ]
+  },
+  {
+    "question": "What happens when the answer is not in the documents?",
+    "ground_truth_answer": "The model must respond with 'I cannot find this in the provided documents.'",
+    "ground_truth_passages": [
+      "instructs the model to respond with 'I cannot find this in the provided documents' when the answer is not supported by retrieved context."
+    ]
+  },
+  {
+    "question": "What metadata must be stored per document?",
+    "ground_truth_answer": "Source filename or URL, document title, and date if available.",
+    "ground_truth_passages": [
+      "extract and store the following metadata: source filename or URL, document title, and date if available."
+    ]
+  },
+  {
+    "question": "What is the minimum number of QA pairs in the evaluation dataset?",
+    "ground_truth_answer": "At least 30 question-answer pairs.",
+    "ground_truth_passages": ["A minimum of 30 question-answer pairs with ground-truth source passages."]
+  },
+  {
+    "question": "What is the total number of points in the grading rubric?",
+    "ground_truth_answer": "100 points.",
+    "ground_truth_passages": ["Total: 100 points"]
+  },
+  {
+    "question": "How many points is the generation and grounding component worth?",
+    "ground_truth_answer": "20 points.",
+    "ground_truth_passages": ["Component 4: Generation & grounding ... 20 pts"]
+  },
+  {
+    "question": "What is causal masking in GPT-2?",
+    "ground_truth_answer": "Causal masking prevents the model from looking ahead at future tokens. It ensures each token can only attend to previous tokens, making the model generative.",
+    "ground_truth_passages": [
+      "Key insight: causal masking is what makes the model generative — it can never look ahead."
+    ]
+  },
+  {
+    "question": "What are BERT's pre-training tasks?",
+    "ground_truth_answer": "Masked language modeling (MLM) and next sentence prediction (NSP).",
+    "ground_truth_passages": [
+      "Pre-training tasks: masked language modeling (MLM) and next sentence prediction (NSP)."
+    ]
+  },
+  {
+    "question": "What is the connection between sentence-transformers and BERT?",
+    "ground_truth_answer": "The sentence-transformers models used for embedding are fine-tuned BERT variants.",
+    "ground_truth_passages": [
+      "Connection to your project: the sentence-transformers models you use for embedding are fine-tuned BERT variants."
+    ]
+  },
+  {
+    "question": "How many file formats must the ingestion pipeline support?",
+    "ground_truth_answer": "At least two file types.",
+    "ground_truth_passages": [
+      "Load raw documents from at least two file types (PDF, HTML, plain text, Markdown, or DOCX)."
+    ]
+  },
+  {
+    "question": "What are the three requirements of the system prompt for generation?",
+    "ground_truth_answer": "1) Instruct the LLM to answer only using provided context. 2) Require citation of source document by name for every factual claim. 3) Instruct the model to refuse when the answer is not in the documents.",
+    "ground_truth_passages": [
+      "Construct a system prompt that: (1) instructs the LLM to answer only using the provided context, (2) requires the model to cite the source document by name for every factual claim, and (3) instructs the model to respond with 'I cannot find this in the provided documents' when the answer is not supported by retrieved context."
+    ]
+  },
+  {
+    "question": "How many experiments are required in the experiment log?",
+    "ground_truth_answer": "At least 5 experiments.",
+    "ground_truth_passages": ["documenting at least 5 experiments where you varied a single component"]
+  },
+  {
+    "question": "What is the live demo duration?",
+    "ground_truth_answer": "10 minutes total, including 5 minutes of Q&A.",
+    "ground_truth_passages": ["A live demonstration of your chat UI covering: ... Live Demo (10 minutes)"]
+  },
+  {
+    "question": "How many correct cited answers must be shown in the live demo?",
+    "ground_truth_answer": "At least 3 queries answered correctly with visible source citations.",
+    "ground_truth_passages": [
+      "At least 3 queries answered correctly with visible source citations"
+    ]
+  },
+  {
+    "question": "What is the overlap range to explore during chunking?",
+    "ground_truth_answer": "10 to 25 percent of chunk size.",
+    "ground_truth_passages": ["Overlap range to explore: 10–25% of chunk size"]
+  },
+  {
+    "question": "What LLM providers can be used for generation?",
+    "ground_truth_answer": "Any LLM API: OpenAI, Anthropic, Google Gemini, or a local model via Ollama.",
+    "ground_truth_passages": [
+      "For the chatbot API you may use any LLM: OpenAI, Anthropic, Google Gemini, or a local model via Ollama."
+    ]
+  },
+  {
+    "question": "What modules must each vector record store?",
+    "ground_truth_answer": "Chunk text, source document metadata, and chunk index within the document.",
+    "ground_truth_passages": [
+      "Each vector record must also store: chunk text, source document metadata, and chunk index within the document."
+    ]
+  },
+  {
+    "question": "What report sections are required?",
+    "ground_truth_answer": "Architecture diagram, chunking comparison with metrics, evaluation results, GPT-2 vs BERT comparison, limitations and failure modes, and a reflection section.",
+    "ground_truth_passages": [
+      "A PDF report covering the following sections: Architecture diagram of your full RAG pipeline with component descriptions; Chunking strategy comparison with retrieval metrics; Evaluation results: retrieval precision@5, RAGAS faithfulness, and answer relevance scores; GPT-2 vs BERT comparison; Limitations and at least three concrete failure modes; Reflection."
+    ]
+  },
+  {
+    "question": "What is the project duration?",
+    "ground_truth_answer": "2 to 3 weeks.",
+    "ground_truth_passages": ["Duration: 2-3 weeks"]
+  },
+  {
+    "question": "What points are awarded for the ingestion pipeline?",
+    "ground_truth_answer": "15 points.",
+    "ground_truth_passages": ["Component 1: Ingestion pipeline ... 15 pts"]
+  },
+  {
+    "question": "What format should the evaluation dataset be submitted in?",
+    "ground_truth_answer": "As a CSV or JSON file in the repository.",
+    "ground_truth_passages": ["Include as a CSV or JSON file in your repository."]
+  },
+  {
+    "question": "What is the capital of Mars?",
+    "ground_truth_answer": "I cannot find this in the provided documents.",
+    "ground_truth_passages": []
+  }
+]
