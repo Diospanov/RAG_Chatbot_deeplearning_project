@@ -1,0 +1,40 @@
+# Environment
+.env
+*.env
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# ChromaDB vector store (rebuild with ingest)
+chroma_db/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Eval outputs (optional — remove if you want to track these)
+eval/results.json
+eval/chunking_comparison.json
